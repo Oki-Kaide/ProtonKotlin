@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2021 Proton Chain LLC, Delaware
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package com.metallicus.protonsdk.model
+
+import com.google.gson.annotations.SerializedName
+import com.metallicus.protonsdk.eosio.commander.model.types.TypeAsset
+import com.metallicus.protonsdk.eosio.commander.model.types.TypeSymbol
+
+data class AccountVotersXPRInfo(
+	@SerializedName("owner") val owner: String? = "",
+	@SerializedName("staked") val staked: Long? = 0,
+	@SerializedName("isqualified") val isQualified: Long? = 0,
+	@SerializedName("claimamount") val claimAmount: Long? = 0,
+	@SerializedName("lastclaim") val lastClaim: String? = ""
+) {
+	fun getStakedAmount(): Double {
+		var stakedAmount = 0.0
+		if (staked != null) {
+			val stakedAsset = TypeAsset(staked, TypeSymbol.fromString("4,XPR"))
+			stakedAmount = stakedAsset.toString().substringBefore(" ").toDouble()
+		}
+		return stakedAmount
+	}
+}

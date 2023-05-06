@@ -1,2 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/* linguist-vendored
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/digest/* linguist-vendored
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/ec/* linguist-vendored
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/model/* linguist-vendored
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/model/chain/* linguist-vendored
+protonsdk/src/main/java/com/metallicus/protonsdk/eosio/commander/model/types/* linguist-vendored
+
+protonsdk/src/main/java/com/metallicus/protonsdk/securestorage/* linguist-vendored
